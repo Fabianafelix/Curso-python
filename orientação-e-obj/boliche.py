@@ -21,14 +21,23 @@ valor_pinos = {
     "10": 6,
     
 }
-
 while True:
+
     boliche (valor_pinos)
 
     escolha = input("\nEscolha o pino que deseja derrubar: ")
 
-    for pino in escolha:
-        posicao=valor_pinos[pino]
-        estrutura_pinos [posicao] = '_'
+    if escolha == '_':
+            print ("Esse pino já foi derrubado")
+            
+    else:
+        for pino in escolha:
+            posicao=valor_pinos[pino]
+            estrutura_pinos [posicao] = '_'
         
     boliche (estrutura_pinos)
+    if "I" not in estrutura_pinos:
+        break
+    
+
+    
