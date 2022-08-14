@@ -17,8 +17,23 @@ class VetorNaoOrdenado:
                 print (i, '-', self.valores [i])
 
     def insere (self, valor):
-        self.ultima_posicao = self.ultima_posicao + 1
-        self.valores [self.ultima_posicao] = valor
+        self.ultima_posicao = self.capacidade + 1
+        self.valores[self.ultima_posicao] = valor
+    
+    def pesquisa (self, valor):
+        for i in range (self.ultima_posicao + 1):
+            if self.valores [i] == valor:
+                 return i
+
+    def excluir (self, valor):
+        posicao = self.pesquisa (valor)
+        if posicao == -1:
+            return -1
+        else:
+            for i in range (posicao, self.ultima_posicao):
+                self. valores[i] = self.valores [i + 1]
+                self.ultima_posicao = self.ultima_posicao - 1
+
 
 vetor = VetorNaoOrdenado (8)
 vetor.imprime
